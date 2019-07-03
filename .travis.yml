@@ -10,11 +10,11 @@ env:
     - PYTHONPATH=$TRAVIS_BUILD_DIR:$PYTHONPATH
 
 install:
-  - pip install awscli
-  - pip install boto3
+  - pip3 install awscli
+  - pip3 install boto3
 
   # install libs from the requirements of each single lambda
-  - for i in src/*/; do pip install -r $i"requirements.txt"; done
+  - for i in src/*/; do pip3 install -r $i"requirements.txt"; done
 
 script:
   # run tests

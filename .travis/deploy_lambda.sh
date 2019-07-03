@@ -4,7 +4,7 @@ LAMBDA_NAME=${LAMBDA_PATH#${SRC}}
 LAMBDA_NAME=${LAMBDA_NAME%/}
 
 echo Deploy $LAMBDA_NAME inside $LAMBDA_PATH
-pip install -r $LAMBDA_PATH"requirements.txt" -t $LAMBDA_PATH --upgrade
+pip3 install -r $LAMBDA_PATH"requirements.txt" -t $LAMBDA_PATH --upgrade
 
 cd $LAMBDA_PATH
 echo "[INFO] ziping: $LAMBDA_NAME"
