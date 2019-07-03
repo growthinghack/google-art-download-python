@@ -12,6 +12,7 @@ import urllib.request
 from pathlib import Path
 
 import aiohttp
+from PIL import _imaging
 from PIL import Image
 import lxml.html
 
