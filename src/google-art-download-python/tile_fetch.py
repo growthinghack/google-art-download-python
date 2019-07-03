@@ -103,9 +103,11 @@ async def fetch_tile(session, image_info, tiles_dir, x, y, z):
     return x, y, encrypted_bytes
 
 
-async def load_tiles(url, z=-1, outfile=None):
+async def load_tiles(url, _z=-1, outfile=None):
     print("Downloading image meta-information...")
     info = ImageInfo(url)
+
+    z = int(_z)
 
     if z >= len(info.tile_info):
         print('Invalid zoom level %d. The maximum zoom level is %d' % (z, len(info.tile_info) - 1))
@@ -140,26 +142,25 @@ async def load_tiles(url, z=-1, outfile=None):
     shutil.rmtree(tiles_dir)
     print("Saved the result as " + final_image_filename)
 
+# def main():
+#     import argparse
 
-def main():
-    import argparse
+#     parser = argparse.ArgumentParser(description='Download all image tiles from Google Arts and Culture website')
+#     parser.add_argument('url', type=str, help='an artsandculture.google.com url')
+#     parser.add_argument('--zoom', type=int, nargs='?',
+#                         help='Zoom level to fetch, can be negative. Will print zoom levels if omitted')
+#     parser.add_argument('--outfile', type=str, nargs='?',
+#                         help='The name of the file to create.')
 
-    parser = argparse.ArgumentParser(description='Download all image tiles from Google Arts and Culture website')
-    parser.add_argument('url', type=str, help='an artsandculture.google.com url')
-    parser.add_argument('--zoom', type=int, nargs='?',
-                        help='Zoom level to fetch, can be negative. Will print zoom levels if omitted')
-    parser.add_argument('--outfile', type=str, nargs='?',
-                        help='The name of the file to create.')
+#     args = parser.parse_args()
 
-    args = parser.parse_args()
-
-    if args.zoom is None:
-        print(ImageInfo(args.url))
-    else:
-        coro = load_tiles(args.url, args.zoom, args.outfile)
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(coro)
+#     if args.zoom is None:
+#         print(ImageInfo(args.url))
+#     else:
+#         coro = load_tiles(args.url, args.zoom, args.outfile)
+#         loop = asyncio.get_event_loop()
+#         loop.run_until_complete(coro)
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
