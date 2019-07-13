@@ -119,7 +119,7 @@ async def load_tiles(url, _z=-1, outfile=None):
 
     img = Image.new(mode="RGB", size=level.size)
 
-    tiles_dir = Path(info.image_name)
+    tiles_dir = Path('./tmp/'+info.image_name)
     tiles_dir.mkdir(exist_ok=True)
 
     async with aiohttp.ClientSession() as session:

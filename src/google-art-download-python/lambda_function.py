@@ -19,7 +19,7 @@ def lambda_handler(event, context):
 
     url = event["queryStringParameters"]["url"]
     zoom = event["queryStringParameters"]["zoom"] or 4
-    outfile = '{}.jpg'.format(ts)
+    outfile = './tmp/{}.jpg'.format(ts)
 
     logger.info("url: "+ url)
     logger.info("zoom: {}".format(zoom))

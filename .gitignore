@@ -6,7 +6,6 @@
 
 # building
 dist/
-tmp/
 *.pyc
 *.zip
 venv
