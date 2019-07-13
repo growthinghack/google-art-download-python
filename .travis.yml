@@ -1,6 +1,6 @@
 language: python
 
-python: '3.6'
+python: '3.7'
 sudo: false
 
 # We don't care about Travis' python versions, we install conda anyway

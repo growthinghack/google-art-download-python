@@ -12,8 +12,8 @@ import urllib.request
 from pathlib import Path
 
 import aiohttp
-from PIL.Image import core as _imaging
 from PIL import Image
+import PIL.Image
 import lxml.html
 
 from lxml import etree
