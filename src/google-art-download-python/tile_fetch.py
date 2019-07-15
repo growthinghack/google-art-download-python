@@ -121,7 +121,7 @@ async def load_tiles(url, _z=-1, outfile=None):
     img = Image.new(mode="RGB", size=level.size)
 
     print('-=-=-=-=-=2 ')
-    tiles_dir = Path('tmp/'+info.image_name)
+    tiles_dir = Path('/tmp/'+info.image_name)
     print('-=-=-=-=-=3 ')
     tiles_dir.mkdir(parents=True, exist_ok=True)
 
