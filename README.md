@@ -16,8 +16,6 @@ for i in src/*/; do pip install -r $i"requirements.txt"; done
 </pre>
 
 
-
-
 ##  Development
 ```
 $ python-lambda-local -f lambda_handler src/google-art-download-python/lambda_function.py mockEvent/googleArtUrlZoom.json -t 20
