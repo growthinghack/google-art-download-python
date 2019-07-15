@@ -117,10 +117,15 @@ async def load_tiles(url, _z=-1, outfile=None):
     z %= len(info.tile_info)  # keep 0 <= z < len(tile_info)
     level = info.tile_info[z]
 
+    print('-=-=-=-=-=1 ')
     img = Image.new(mode="RGB", size=level.size)
 
+    print('-=-=-=-=-=2 ')
     tiles_dir = Path('./tmp/'+info.image_name)
+    print('-=-=-=-=-=3 ')
     tiles_dir.mkdir(exist_ok=True)
+
+    print('-=-=-=-=-=4 ')
 
     async with aiohttp.ClientSession() as session:
         awaitable_tiles = [
